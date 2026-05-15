@@ -228,10 +228,7 @@
                 else if (s === 'กำลังทำ') process++;
                 else if (s === 'เสร็จสิ้น') done++;
             });
-            document.getElementById('count-wait').innerText = wait;
-            document.getElementById('count-process').innerText = process;
-            document.getElementById('count-done').innerText = done;
-        }
+           
 
         async function checkStatus() {
             const inputId = document.getElementById('orderInput').value.trim().toUpperCase();
