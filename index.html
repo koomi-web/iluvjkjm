@@ -5,36 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iluvjkjm_ - รับทำเว็บไซต์ครบวงจร</title>
     
-    <!-- Google Fonts: Mitr -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Mitr', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Mitr', 'sans-serif'] },
                     colors: {
-                        cream: '#FFFFFF',    /* ปรับเป็นขาวตามบรีฟ */
-                        pinky: {
-                            light: '#FFF0F3', /* ชมพูอ่อนมาก */
-                            DEFAULT: '#FFB6C1', /* ชมพูหลัก */
-                            dark: '#FF889B'   /* ชมพูเข้ม */
-                        },
-                        brown: {
-                            light: '#8B5E5E', /* ปรับเป็นโทนน้ำตาลอมชมพู */
-                            DEFAULT: '#5D4037', 
-                            dark: '#3E2723'
-                        }
+                        cream: '#FFFFFF',
+                        pinky: { light: '#FFF0F3', DEFAULT: '#FFB6C1', dark: '#FF889B' },
+                        brown: { light: '#8B5E5E', DEFAULT: '#5D4037', dark: '#3E2723' }
                     },
                     boxShadow: {
                         'soft': '0 4px 20px -2px rgba(255, 182, 193, 0.3)',
@@ -46,237 +33,147 @@
     </script>
 
     <style>
-        body {
-            background-color: #FFFFFF;
-            color: #5D4037;
-        }
-        
+        body { background-color: #FFFFFF; color: #5D4037; }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #FFFFFF; }
         ::-webkit-scrollbar-thumb { background: #FFB6C1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #FF889B; }
-
-        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
-        .modal-content { transition: transform 0.3s ease; transform: translateY(20px) scale(0.95); }
-        .modal.active .modal-content { transform: translateY(0) scale(1); }
-
-        @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
-        @keyframes float-reverse { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(15px) rotate(-8deg); } }
-        @keyframes float-slow { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-8px) scale(1.05); } }
-        
         .animate-float { animation: float 4s ease-in-out infinite; }
-        .animate-float-delayed { animation: float 4s ease-in-out 2s infinite; }
-        .animate-float-reverse { animation: float-reverse 5s ease-in-out 1s infinite; }
-        .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
     </style>
 </head>
 <body class="antialiased selection:bg-pinky selection:text-white relative">
 
-    <svg width="0" height="0" class="hidden absolute pointer-events-none">
-        <symbol id="icon-teddy" viewBox="0 0 24 24" fill="currentColor">
-            <circle cx="6" cy="7" r="3.5" /><circle cx="6" cy="7" r="1.5" fill="#FFFFFF" />
-            <circle cx="18" cy="7" r="3.5" /><circle cx="18" cy="7" r="1.5" fill="#FFFFFF" />
-            <path d="M12 6C7 6 4 10 4 15C4 20 7 22.5 12 22.5C17 22.5 20 20 20 15C20 10 17 6 12 6Z" />
-            <circle cx="8.5" cy="12" r="1.2" fill="#FFFFFF" /><circle cx="15.5" cy="12" r="1.2" fill="#FFFFFF" />
-            <ellipse cx="12" cy="16.5" rx="4" ry="3" fill="#FFFFFF" /><ellipse cx="12" cy="15" rx="1.5" ry="1" fill="#5D4037" />
-            <path d="M12 16v1.5M10.5 18c.5.5 2.5.5 3 0" stroke="#5D4037" stroke-width="1.2" fill="none" stroke-linecap="round" />
-        </symbol>
-        <symbol id="icon-button" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="46" fill="#F0C7D3" /><circle cx="50" cy="50" r="42" fill="#F8E2E8" />
-            <circle cx="50" cy="50" r="28" fill="#FCE9ED" /><circle cx="50" cy="50" r="28" fill="none" stroke="#ECAEBD" stroke-width="2" />
-            <circle cx="40" cy="40" r="5.5" fill="#FFFFFF" /><circle cx="60" cy="40" r="5.5" fill="#FFFFFF" />
-            <circle cx="40" cy="60" r="5.5" fill="#FFFFFF" /><circle cx="60" cy="60" r="5.5" fill="#FFFFFF" />
-        </symbol>
-        <symbol id="icon-heart-cute" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </symbol>
-    </svg>
-
     <div class="max-w-md mx-auto min-h-screen bg-white shadow-xl relative overflow-hidden">
         
-        <!-- DECORATIONS -->
-        <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-50">
-            <svg class="absolute top-[2%] left-[8%] w-10 h-10 text-pinky animate-float opacity-30" viewBox="0 0 24 24"><use href="#icon-teddy"></use></svg>
-            <svg class="absolute top-[7%] right-[12%] w-9 h-9 animate-float-delayed opacity-40" viewBox="0 0 100 100"><use href="#icon-button"></use></svg>
-            <svg class="absolute top-[20%] right-[5%] w-14 h-14 text-pinky animate-float opacity-20" viewBox="0 0 24 24"><use href="#icon-teddy"></use></svg>
-            <svg class="absolute top-[43%] left-[4%] w-12 h-12 text-pinky animate-float opacity-30" viewBox="0 0 24 24"><use href="#icon-teddy"></use></svg>
-            <svg class="absolute top-[65%] right-[6%] w-12 h-12 text-pinky animate-float-slow opacity-20" viewBox="0 0 24 24"><use href="#icon-teddy"></use></svg>
-        </div>
-
-        <!-- Header -->
         <header class="bg-gradient-to-r from-pinky-light to-white pt-10 pb-8 px-6 relative rounded-b-[40px] shadow-sm z-10 border-b-4 border-pinky-light/30 flex items-center gap-5">
-            <div class="shrink-0 relative group">
-                <div class="w-24 h-24 rounded-2xl border-[4px] border-white shadow-md overflow-hidden bg-white flex items-center justify-center relative z-10">
-                    <img src="https://i.postimg.cc/nr1VxGpZ/IMG-7153.png" alt="Logo" class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm border-2 border-pinky-light">
-                    <i data-lucide="heart" class="w-4 h-4 text-pinky-dark fill-pinky-dark"></i>
-                </div>
+            <div class="w-24 h-24 rounded-2xl border-[4px] border-white shadow-md overflow-hidden bg-white">
+                <img src="https://i.postimg.cc/nr1VxGpZ/IMG-7153.png" alt="Logo" class="w-full h-full object-cover">
             </div>
-
-            <div class="flex-1 text-left relative z-10">
-                <div class="flex items-center gap-2 mb-1 opacity-80">
-                    <i data-lucide="sparkles" class="w-4 h-4 text-pinky-dark"></i>
-                </div>
+            <div class="flex-1">
                 <h1 class="text-[34px] leading-tight font-bold text-brown mb-2">iluvjkjm_</h1>
-                <p class="text-brown-light text-[11px] font-medium bg-white inline-block px-3 py-1.5 rounded-2xl shadow-sm border border-pinky-light/40 uppercase tracking-tighter">
-                    รับทำเว็บไซต์แบบครบวงจร
-                </p>
+                <p class="text-brown-light text-[11px] font-medium bg-white inline-block px-3 py-1.5 rounded-2xl shadow-sm border border-pinky-light/40 uppercase">รับทำเว็บไซต์แบบครบวงจร</p>
             </div>
         </header>
 
-        <!-- Main Content -->
-        <main class="px-6 py-8 space-y-12 relative z-10">
+        <main class="px-6 py-8 space-y-10 relative z-10">
 
-            <!-- Badges (ปุ่มกลมเล็กๆ ด้านบน - คงไว้ตามเงื่อนไข) -->
-            <section class="text-center space-y-3">
-                <h2 class="text-xl font-medium flex items-center justify-center gap-2 text-brown">
-                    <i data-lucide="stars" class="w-5 h-5 text-pinky-dark"></i>
-                    Welcome to iluvjkjm_
-                </h2>
-                <div class="flex flex-wrap justify-center gap-2 mt-3">
-                    <span class="text-[10px] bg-white border border-pinky text-brown px-3 py-1 rounded-full shadow-sm">เว็บคิวงานออกแบบ</span>
-                    <span class="text-[10px] bg-white border border-pinky text-brown px-3 py-1 rounded-full shadow-sm">เว็บร้านพรีออเดอร์</span>
-                    <span class="text-[10px] bg-white border border-pinky text-brown px-3 py-1 rounded-full shadow-sm">เว็บหน้าไบโอ</span>
-                </div>
-            </section>
-
-            <!-- Status Bar & เส้นประ (คงไว้ตามเงื่อนไข) -->
-            <section class="space-y-4">
-                <div class="bg-white rounded-2xl p-4 border border-pinky shadow-sm">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="text-xs font-medium text-brown">Status: เปิดรับงานปกติ 🎀</span>
-                        <i data-lucide="loader" class="w-4 h-4 text-pinky-dark animate-spin"></i>
+            <section class="space-y-6">
+                <div class="bg-white rounded-[40px] p-8 shadow-card border border-pinky-light/30 relative">
+                    <div class="absolute top-6 right-6 w-6 h-6 border border-pinky-light rounded-full flex items-center justify-center text-pinky text-[10px]">i</div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <i data-lucide="search" class="w-6 h-6 text-pinky-dark"></i>
+                        <h2 class="text-2xl font-bold text-pinky-dark">เช็คสถานะงาน</h2>
                     </div>
-                    <!-- ปุ่มเช็คคิวงานแบบเส้นประ -->
-                    <a href="https://docs.google.com/spreadsheets/d/11e_8Sl-o7e4-dODcJ68mdVqKBJc8xeIj05PUVB29_5U/edit?usp=drivesdk" target="_blank" 
-                       class="block w-full py-3 border-2 border-dashed border-pinky rounded-xl text-center text-sm font-medium text-pinky-dark hover:bg-pinky-light/50 transition-colors">
-                        💌 คลิกเพื่อเช็คคิวงาน
-                    </a>
+                    <p class="text-center text-pinky-dark/70 text-xs mb-4 font-medium">พิมพ์รหัสคิวงาน หรือ ชื่อลูกค้า ได้เลยนะคะ</p>
+                    <div class="flex gap-2">
+                        <input type="text" id="orderInput" placeholder="PJ0001..." 
+                            class="flex-1 bg-pinky-light/30 border-none rounded-2xl py-4 px-6 text-brown focus:outline-none placeholder-pinky/60 shadow-inner">
+                        <button onclick="checkStatus()" id="searchBtn" class="bg-pinky-dark hover:bg-pinky transition-colors rounded-2xl p-4 text-white shadow-md">
+                            <i data-lucide="search" class="w-6 h-6"></i>
+                        </button>
+                    </div>
                 </div>
-            </section>
 
-           <!-- Portfolio -->
-            <section class="bg-pinky/10 rounded-3xl p-6 shadow-card border border-white">
-                <h2 class="text-xl font-medium mb-4 text-center text-brown">how to pay </h2>
-                <div class="grid grid-cols-1 gap-3">
-                    <button onclick="window.open('https://koomi-web.github.io/payforiluvjkjm/', '_blank')" class="bg-white p-4 rounded-2xl flex items-center justify-between shadow-sm border border-pinky-light/30">
-                        <span class="font-medium text-brown">ชำระเงิน</span>
-                        <i data-lucide="chevron-right" class="w-5 h-5 text-pinky"></i>
-                    </button>
-                </div>
-            </section>
-
-            <!-- Pricing -->
-            <section class="space-y-5">
-                <h2 class="text-xl font-medium flex items-center gap-2 border-b-2 border-pinky-light pb-2 text-brown">
-                    <i data-lucide="tag" class="w-5 h-5 text-pinky-dark"></i>
-                    เรทราคาเริ่มต้น
-                </h2>
-                <div class="bg-white rounded-3xl shadow-card p-6 border-2 border-pinky-light relative overflow-hidden">
-                    <div class="flex items-end justify-between border-b border-dashed border-pinky/50 pb-3">
-                        <div>
-                            <span class="block font-bold text-2xl text-pinky-dark">129.-฿</span>
-                            <span class="text-xs text-brown-light">ราคาเริ่มต้นต่อ 1 เว็บไซต์</span>
+                <div>
+                    <div class="flex items-center gap-2 mb-4 ml-2">
+                        <i data-lucide="list-ordered" class="w-5 h-5 text-pinky-dark"></i>
+                        <h3 class="text-lg font-bold text-pinky-dark">คิวปัจจุบัน</h3>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 text-center">
+                        <div class="bg-white rounded-[30px] py-5 shadow-soft border border-pinky-light/20">
+                            <p class="text-brown-light text-[10px] mb-1">รอทำ</p>
+                            <p id="count-wait" class="text-3xl font-bold text-pinky-dark">0</p>
+                        </div>
+                        <div class="bg-white rounded-[30px] py-5 shadow-soft border border-pinky-light/20">
+                            <p class="text-brown-light text-[10px] mb-1">กำลังทำ</p>
+                            <p id="count-process" class="text-3xl font-bold text-orange-400">0</p>
+                        </div>
+                        <div class="bg-white rounded-[30px] py-5 shadow-soft border border-pinky-light/20">
+                            <p class="text-brown-light text-[10px] mb-1">เสร็จสิ้น</p>
+                            <p id="count-done" class="text-3xl font-bold text-green-400">0</p>
                         </div>
                     </div>
-                    <ul class="mt-4 space-y-2 text-xs text-brown-light">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-pinky-dark"></i> แก้ข้อมูลหลังส่งงาน +30/จุด</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-pinky-dark"></i> แก้ไขนอกเหนือจากบรีฟ +50/จุด</li>
-                    </ul>
                 </div>
             </section>
 
-            <!-- Rules & Steps -->
-            <section class="grid grid-cols-2 gap-4">
-                <div class="bg-white rounded-2xl p-5 shadow-sm border border-pinky-light">
-                    <h3 class="font-bold mb-2 text-xs text-brown uppercase">ขั้นตอนการสั่ง</h3>
-                    <ul class="text-[10px] text-brown-light space-y-2 list-decimal list-inside">
-                        <li>กรอกฟอร์มรายละเอียด</li>
-                        <li>แนบลิงก์เรฟและโลโก้</li>
-                        <li>ชำระเงินหลังแจ้งยอด</li>
-                        <li>รอรับลิงก์ (4-8 ชม.)</li>
-                    </ul>
-                </div>
-                <div class="bg-white rounded-2xl p-5 shadow-sm border border-pinky-light">
-                    <h3 class="font-bold mb-2 text-xs text-pinky-dark uppercase">กฎของร้าน</h3>
-                    <ul class="text-[10px] text-brown-light space-y-2 list-disc list-inside">
-                        <li>โอนแล้วไม่คืนเงิน</li>
-                        <li>ยกเลิกหลังบรีฟคืน 50%</li>
-                        <li>งานเร่งราคา *2</li>
-                        <li>ยกเลิกหลังเช็คงาน ไม่คืนเงิน</li>
-                    </ul>
-                </div>
+            <section class="bg-pinky/10 rounded-3xl p-6 shadow-card border border-white">
+                <h2 class="text-xl font-medium mb-4 text-center text-brown">how to pay</h2>
+                <button onclick="window.open('https://koomi-web.github.io/payforiluvjkjm/', '_blank')" class="w-full bg-white p-4 rounded-2xl flex items-center justify-between shadow-sm border border-pinky-light/30">
+                    <span class="font-medium text-brown">ชำระเงิน</span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-pinky"></i>
+                </button>
             </section>
 
         </main>
 
-        <!-- Footer / Contact -->
         <footer class="bg-white pt-10 pb-12 px-6 rounded-t-[40px] text-center border-t border-pinky-light shadow-soft">
-            <h2 class="text-[13px] font-bold mb-6 text-brown tracking-widest uppercase">CONTACT US</h2>
-            <div class="flex flex-col items-center gap-3 mb-8">
-                <div class="flex justify-center gap-3 w-full max-w-[280px]">
-                    <a href="https://x.com/iluvjkjm_?s=21" target="_blank" class="flex-1 bg-pinky-dark text-white py-3 rounded-full text-[11px] font-bold shadow-md uppercase">TWITTER (X)</a>
-                    <a href="https://lin.ee/xt1vCQ8" target="_blank" class="flex-1 bg-white border-2 border-pinky-dark text-pinky-dark py-3 rounded-full text-[11px] font-bold shadow-md uppercase">LINE</a>
-                </div>
+            <div class="flex justify-center gap-3 mb-8">
+                <a href="https://x.com/iluvjkjm_" target="_blank" class="flex-1 bg-pinky-dark text-white py-3 rounded-full text-[11px] font-bold">TWITTER (X)</a>
+                <a href="https://lin.ee/xt1vCQ8" target="_blank" class="flex-1 bg-white border-2 border-pinky-dark text-pinky-dark py-3 rounded-full text-[11px] font-bold">LINE</a>
             </div>
             <p class="text-[11px] text-brown-light italic">Thank you for choosing iluvjkjm_ 💖</p>
         </footer>
     </div>
 
-    <!-- Modal (Pop-up) -->
-    <div id="portfolioModal" class="modal fixed inset-0 z-[100] flex items-center justify-center bg-brown-dark/40 backdrop-blur-sm invisible opacity-0 p-4">
-        <div class="modal-content bg-white w-full max-w-sm rounded-[30px] shadow-2xl overflow-hidden border-4 border-pinky-light">
-            <div id="modalHeaderBg" class="p-5 flex justify-between items-center bg-pinky-light">
-                <h3 id="modalTitle" class="font-medium text-brown flex items-center gap-2"><span>ตัวอย่างงาน</span></h3>
-                <button onclick="closeModal()" class="w-8 h-8 bg-white/50 rounded-full flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
-            </div>
-            <div id="modalLinks" class="p-5 space-y-3 bg-white max-h-[60vh] overflow-y-auto">
-                <!-- Links injected by JS -->
-            </div>
-        </div>
-    </div>
-
     <script>
         lucide.createIcons();
-        const portfolioData = {
-            bright: {
-                title: "โทนสดใส", icon: "sun", headerClass: "bg-pinky-light",
-                links: [
-                    { name: "สดใสV.1 ยีนส์กระดุม", url: "" },
-                    { name: "สดใสV.2 กดเข้าสู่ร้าน", url: "" }
-                ]
-            },
-            dark: {
-                title: "โทนมืด", icon: "moon", headerClass: "bg-pinky",
-                links: [
-                    { name: "โทนมืดV.1", url: "" },
-                    { name: "โทนมืดV.2", url: "" }
-                ]
-            }
-        };
 
-        const modal = document.getElementById('portfolioModal');
-        function openModal(category) {
-            const data = portfolioData[category];
-            document.getElementById('modalTitle').innerHTML = `<span>${data.title}</span>`;
-            const container = document.getElementById('modalLinks');
-            container.innerHTML = '';
-            data.links.forEach(link => {
-                container.innerHTML += `
-                    <a href="${link.url}" target="_blank" class="flex items-center justify-between p-4 bg-pinky-light/20 rounded-xl border border-pinky-light">
-                        <span class="text-sm font-medium text-brown">${link.name}</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-pinky"></i>
-                    </a>`;
+        // 1. วางลิงก์ CSV จาก Google Sheets ของคุณที่นี่
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/13bW6-V_RkDaCv6MoOdtmjcmDNH5O0y8FfO6sRAtAqhg/edit?usp=drivesdk';
+
+        // ฟังก์ชันดึงข้อมูลทั้งหมดจาก Sheets มานับจำนวนคิวและใช้ค้นหา
+        async function fetchSheetData() {
+            try {
+                const response = await fetch(SHEET_CSV_URL);
+                const data = await response.text();
+                // แยกแถวและคอลัมน์ (รองรับ CSV)
+                return data.split('\n').map(row => row.split(',').map(cell => cell.trim()));
+            } catch (e) {
+                console.error("Error fetching data", e);
+                return [];
+            }
+        }
+
+        // อัปเดตตัวเลขคิวหน้าเว็บอัตโนมัติจากข้อมูลในชีต
+        async function updateQueueCounts() {
+            const rows = await fetchSheetData();
+            if (rows.length < 2) return;
+
+            // สมมติว่า Column ที่ 3 (Index 2) คือ "สถานะ"
+            let wait = 0, process = 0, done = 0;
+            
+            rows.slice(1).forEach(row => {
+                const status = row[2];
+                if (status === 'รอทำ') wait++;
+                else if (status === 'กำลังทำ') process++;
+                else if (status === 'เสร็จสิ้น') done++;
             });
-            lucide.createIcons();
-            modal.classList.remove('invisible', 'opacity-0');
-            modal.classList.add('active');
+
+            document.getElementById('count-wait').innerText = wait;
+            document.getElementById('count-process').innerText = process;
+            document.getElementById('count-done').innerText = done;
         }
-        function closeModal() {
-            modal.classList.add('opacity-0');
-            setTimeout(() => { modal.classList.add('invisible'); }, 300);
+
+        // ฟังก์ชันเช็คสถานะรายคน
+        async function checkStatus() {
+            const inputId = document.getElementById('orderInput').value.trim().toUpperCase();
+            if (!inputId) return alert("กรุณากรอกรหัสคิวงานค่ะ");
+
+            const btn = document.getElementById('searchBtn');
+            btn.disabled = true;
+
+            const rows = await fetchSheetData();
+            const result = rows.find(row => row[0].toUpperCase() === inputId);
+
+            if (result) {
+                alert(`🎀 ข้อมูลคิวงาน: ${result[0]}\n----------------------------\nลูกค้า: ${result[1]}\nสถานะ: ${result[2]}\nความคืบหน้า: ${result[3]}\nรายละเอียด: ${result[4] || '-'}`);
+            } else {
+                alert("❌ ไม่พบรหัสคิวงานนี้ กรุณาตรวจสอบอีกครั้งค่ะ");
+            }
+            btn.disabled = false;
         }
+
+        // รันการนับคิวเมื่อเปิดหน้าเว็บ
+        updateQueueCounts();
     </script>
 </body>
 </html>
