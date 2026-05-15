@@ -216,18 +216,10 @@
                 const data = await response.text();
                 return data.split('\n').map(row => row.split(',').map(cell => cell.trim()));
             } catch (e) { return []; }
+             document.getElementById('count-wait').innerText = wait;
+            document.getElementById('count-process').innerText = process;
+            document.getElementById('count-done').innerText = done;
         }
-
-        async function updateDashboard() {
-            const rows = await fetchSheetData();
-            if (rows.length < 2) return;
-            let wait = 0, process = 0, done = 0;
-            rows.slice(1).forEach(row => {
-                const s = row[2];
-                if (s === 'รอทำ') wait++;
-                else if (s === 'กำลังทำ') process++;
-                else if (s === 'เสร็จสิ้น') done++;
-            });
            
 
         async function checkStatus() {
