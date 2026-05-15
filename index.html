@@ -45,12 +45,27 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #FFFFFF; }
         ::-webkit-scrollbar-thumb { background: #FFB6C1; border-radius: 10px; }
+
+        /* กริตเตอร์สีชมพูและอนิเมชั่น */
+        .glitter-pink {
+            background: linear-gradient(90deg, #FFB6C1, #FF889B, #FFB6C1);
+            background-size: 200% 200%;
+            animation: glitterMove 2s linear infinite;
+            position: relative;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.4"/%3E%3C/svg%3E');
+        }
+
+        @keyframes glitterMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
         .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
         .modal-content { transition: transform 0.3s ease; transform: translateY(20px) scale(0.95); }
         .modal.active .modal-content { transform: translateY(0) scale(1); }
         @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
         .animate-float { animation: float 4s ease-in-out infinite; }
-        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); }
+        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); border: 2px solid #FFB6C1; }
         .progress-bar { transition: width 1s ease-in-out; }
     </style>
 </head>
@@ -98,7 +113,7 @@
                 </div>
             </section>
 
-            <section class="space-y-6">
+            <section class="space-y-4">
                 <div class="bg-white rounded-[40px] p-8 shadow-card border border-pinky-light/30 relative">
                     <div class="flex items-center gap-2 mb-6">
                         <i data-lucide="search" class="w-6 h-6 text-pinky-dark"></i>
@@ -106,46 +121,35 @@
                     </div>
                     <div class="relative mb-4">
                         <input type="text" id="orderInput" placeholder="กรอกรหัสคิวงานของคุณ..." 
-                            class="w-full bg-pinky-light/30 border-none rounded-full py-4 px-6 pr-14 text-brown focus:outline-none focus:ring-2 focus:ring-pinky placeholder-pinky/60 shadow-inner transition-all">
+                            class="w-full bg-pinky-light/30 border-none rounded-full py-4 px-6 pr-14 text-brown focus:outline-none focus:ring-2 focus:ring-pinky placeholder:text-pinky/60 shadow-inner transition-all">
                         <button onclick="checkStatus()" id="searchBtn" class="absolute right-2 top-2 bottom-2 px-4 bg-pinky-dark text-white rounded-full hover:bg-pinky transition-all active:scale-95 shadow-md">
                             <i data-lucide="arrow-right" class="w-5 h-5"></i>
                         </button>
                     </div>
 
                     <div id="resultCard" class="hidden animate-in fade-in slide-in-from-top-4 duration-500 mt-4">
-                        <div class="glass-card rounded-[30px] p-5 shadow-inner border border-pinky-light">
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 id="resName" class="font-bold text-brown">กำลังโหลด...</h3>
-                                <span id="resStatus" class="text-[10px] bg-pinky-dark text-white px-3 py-1 rounded-full font-bold">Waiting</span>
+                        <div class="glass-card rounded-[30px] p-6 shadow-inner border-2 border-pinky-light">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 id="resName" class="font-bold text-brown text-lg">กำลังโหลด...</h3>
+                                <span id="resStatus" class="text-[10px] bg-pinky-dark text-white px-3 py-1 rounded-full font-bold shadow-sm">Waiting</span>
                             </div>
-                            <div class="space-y-3">
+                            <div class="space-y-4">
                                 <div>
-                                    <div class="flex justify-between text-[10px] mb-1">
-                                        <span class="text-brown-light uppercase font-bold">Progress</span>
+                                    <div class="flex justify-between text-[11px] mb-2">
+                                        <span class="text-brown-light uppercase font-bold tracking-wider">Progress</span>
                                         <span id="resPercent" class="text-pinky-dark font-bold">0%</span>
                                     </div>
-                                    <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                                        <div id="resBar" class="progress-bar h-full bg-pinky-dark" style="width: 0%"></div>
+                                    <div class="w-full bg-pinky-light/50 h-5 rounded-full overflow-hidden relative shadow-inner">
+                                        <div id="resBar" class="glitter-pink progress-bar h-full rounded-full flex items-center justify-end pr-2" style="width: 0%">
+                                            <span class="text-sm">🐰</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <p id="resDetail" class="text-[11px] text-brown-light bg-white/50 p-3 rounded-xl border border-white">รายละเอียดงาน...</p>
+                                <div class="bg-white/60 p-4 rounded-2xl border border-pinky-light/30">
+                                    <p id="resDetail" class="text-[12px] text-brown-light leading-relaxed">รายละเอียดงาน...</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="bg-white rounded-[30px] py-5 text-center shadow-soft border border-pinky-light/20">
-                        <p class="text-brown-light text-[10px] font-medium mb-1">รอทำ</p>
-                        <p id="count-wait" class="text-3xl font-bold text-pinky-dark">0</p>
-                    </div>
-                    <div class="bg-white rounded-[30px] py-5 text-center shadow-soft border border-pinky-light/20">
-                        <p class="text-brown-light text-[10px] font-medium mb-1">กำลังทำ</p>
-                        <p id="count-process" class="text-3xl font-bold text-orange-400">0</p>
-                    </div>
-                    <div class="bg-white rounded-[30px] py-5 text-center shadow-soft border border-pinky-light/20">
-                        <p class="text-brown-light text-[10px] font-medium mb-1">เสร็จสิ้น</p>
-                        <p id="count-done" class="text-3xl font-bold text-green-400">0</p>
                     </div>
                 </div>
             </section>
@@ -207,8 +211,8 @@
     <script>
         lucide.createIcons();
 
-        // ** สำคัญ: นำลิงก์ CSV จาก Google Sheets มาวางตรงนี้ครับ **
-        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRSb3NjMWRZhh2vEB66XuwzJ8KmJlrnyHXni8sanKgdH_rG4qL0e2-tfF2c5ZqpJEbbsdBVZScabcF-/pub?output=csv';
+        // นำลิงก์ CSV จาก Google Sheets ของคุณมาวางตรงนี้ครับ
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT17xTOn027G2aY76_27G7YxX_V2xX/pub?output=csv';
 
         async function fetchSheetData() {
             try {
@@ -216,11 +220,7 @@
                 const data = await response.text();
                 return data.split('\n').map(row => row.split(',').map(cell => cell.trim()));
             } catch (e) { return []; }
-             document.getElementById('count-wait').innerText = wait;
-            document.getElementById('count-process').innerText = process;
-            document.getElementById('count-done').innerText = done;
         }
-           
 
         async function checkStatus() {
             const inputId = document.getElementById('orderInput').value.trim().toUpperCase();
@@ -243,8 +243,6 @@
                 resultCard.classList.add('hidden');
             }
         }
-
-        updateDashboard();
     </script>
 </body>
 </html>
